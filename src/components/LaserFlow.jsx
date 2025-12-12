@@ -49,7 +49,7 @@ function LaserFlow({
         const particlesGeometry = new THREE.BufferGeometry();
         const posArray = new Float32Array(particlesCount * 3);
 
-        for (let i = 0; i < particlesCount * 3; i++) {
+        for (let i = 0; i < particlesCount * 7; i++) {
             posArray[i] = (Math.random() - 0.5) * 10;
         }
 
