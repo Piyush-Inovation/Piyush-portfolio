@@ -1,0 +1,235 @@
+/* Selected Works Section */
+.selected-works {
+  padding: 6rem 2rem;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-title-wrapper {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: 'Jacques Francois Shadow', cursive;
+  font-size: 60px;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: -20px;
+  height: 1px;
+  background-color: var(--accent-color);
+  transform: translateY(15px);
+  opacity: 0.5;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* Navigation Buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-color);
+  color: #0B0F0E;
+  border: none;
+  padding: 14px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(0, 255, 153, 0.4);
+  transition: all 0.3s ease;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  filter: brightness(1.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+  left: 0px;
+}
+
+.slider-btn.next {
+  right: 0px;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Video */
+.project-video {
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 300px;
+  background-color: #000;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.video-placeholder:hover {
+  transform: scale(1.02);
+}
+
+/* Info Cards */
+.project-purpose,
+.project-functions,
+.project-tech {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid var(--card-border-subtle);
+}
+
+.project-purpose h3,
+.project-functions h3,
+.project-tech h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin: 0;
+  /* Reset default margin for flex alignment */
+}
+
+/* Header for Purpose card to align Title and Icon */
+.project-purpose-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.github-link {
+  color: var(--text-on-card);
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.github-link:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.project-purpose p,
+.project-functions li,
+.project-tech li {
+  color: var(--text-on-card);
+  line-height: 1.6;
+}
+
+.project-tech ul,
+.project-functions ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tech li,
+.project-functions li {
+  background: var(--chip-bg);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Hover Effects */
+.project-purpose:hover,
+.project-functions:hover,
+.project-tech:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 255, 153, 0.1);
+  border: 1px solid var(--accent-color);
+}
+
+/* Grid Placement - SWAPPED Purpose and Tech Stack */
+.project-purpose {
+  grid-column: 3 / 4;
+  grid-row: 1 / 3;
+}
+
+.project-tech {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.project-functions {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .section-title {
+    font-size: 50px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .project-video,
+  .project-tech,
+  .project-purpose,
+  .project-functions {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .slider-btn {
+    padding: 10px 15px;
+  }
+}

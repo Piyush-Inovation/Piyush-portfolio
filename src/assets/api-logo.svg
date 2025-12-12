@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
+  <!-- API Gear -->
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#0ea5e9" stroke-width="8"/>
+  <circle cx="100" cy="100" r="25" fill="#0ea5e9"/>
+  <!-- Gear teeth -->
+  <g fill="#0ea5e9">
+    <rect x="95" y="25" width="10" height="20"/>
+    <rect x="95" y="155" width="10" height="20"/>
+    <rect x="25" y="95" width="20" height="10"/>
+    <rect x="155" y="95" width="20" height="10"/>
+  </g>
+  <!-- API Text -->
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">API</text>
+</svg>

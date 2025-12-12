@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
+
+.hero {
+  padding: 4rem 2rem;
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hero-title {
+  font-family: 'Jacques Francois Shadow', cursive;
+  font-size: 127px;
+  color: var(--accent-color);
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 0rem;
+  margin-left: 25px;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-left: 33px;
+  margin-top: 16px;
+}
+
+.hero-description {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  max-width: 600px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: transparent;
+  border: 2px solid var(--text-primary);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-top: 25px;
+  position: relative;
+  animation: moveInBottom 5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.cta-button::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  background-color: transparent;
+  border: 2px solid var(--text-primary);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Features Section */
+.features-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-top: -1rem;
+  background-color: transparent;
+  border-radius: 40px;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.feature-card {
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  border: 2px solid transparent;
+}
+
+.feature-card:hover {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--accent-color);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 255, 153, 0.1);
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.feature-list li {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.feature-list li::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+  top: -3px;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.character-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.character-image img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 8px solid rgb(1, 95, 57);
+  filter: drop-shadow(0 10px 30px rgba(0, 255, 153, 0.19));
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 80px;
+  }
+
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+
+  .character-image {
+    order: -1;
+  }
+}
+
+/* Laptops & Desktops (1441px+) */
+@media (min-width: 1441px) {
+  .hero {
+    max-width: 1600px;
+  }
+
+  .hero-title {
+    font-size: 140px;
+  }
+}
+
+/* Tablets (481px - 1024px) */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 3rem 2rem;
+    padding-top: 6rem;
+  }
+
+  .hero-title {
+    font-size: 90px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .features-section {
+    gap: 2rem;
+  }
+
+  .character-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .character-image img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Mobile Devices (320px - 768px) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1.5rem;
+    padding-top: 5rem;
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: 64px;
+    margin-left: 10px;
+  }
+
+  .hero-section {
+    margin-left: 10px;
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 0.9rem;
+  }
+
+  .features-section {
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: 1.1rem;
+  }
+
+  .feature-list {
+    gap: 0.7rem;
+  }
+
+  .feature-list li {
+    font-size: 0.9rem;
+  }
+
+  .character-image {
+    max-width: 250px;
+  }
+
+  .character-image img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1.5rem 1rem;
+    padding-top: 4.5rem;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    margin-left: 5px;
+  }
+
+  .hero-section {
+    margin-left: 5px;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    padding: 10px 25px;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .features-section {
+    gap: 1.2rem;
+  }
+
+  .feature-card {
+    padding: 1.2rem;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-list {
+    gap: 0.6rem;
+  }
+
+  .feature-list li {
+    font-size: 0.85rem;
+    padding-left: 1.2rem;
+  }
+
+  .character-image {
+    max-width: 200px;
+  }
+
+  .character-image img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Small Mobile (320px - 375px) */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .feature-card {
+    padding: 1rem;
+  }
+
+  .feature-list li {
+    font-size: 0.8rem;
+  }
+
+  .character-image img {
+    width: 150px;
+    height: 150px;
+  }
+}

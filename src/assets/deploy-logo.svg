@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
+  <!-- Deployment/Deploy -->
+  <rect width="200" height="200" fill="#3b82f6" rx="30"/>
+  <g fill="white">
+    <circle cx="100" cy="60" r="18"/>
+    <rect x="85" y="90" width="30" height="50" rx="5"/>
+    <path d="M 65 140 L 100 160 L 135 140" fill="none" stroke="white" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

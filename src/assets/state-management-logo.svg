@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
+  <!-- Wavy Lines -->
+  <defs>
+    <style>
+      .wave { fill: none; stroke: #14b8a6; stroke-width: 12; stroke-linecap: round; }
+    </style>
+  </defs>
+  <path class="wave" d="M 30 80 Q 50 60 70 80 T 110 80"/>
+  <path class="wave" d="M 30 130 Q 50 110 70 130 T 110 130"/>
+</svg>

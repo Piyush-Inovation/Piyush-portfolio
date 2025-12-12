@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
+  <!-- TypeScript Blue Square -->
+  <rect width="200" height="200" fill="#2d79c7" rx="20"/>
+  <!-- TS -->
+  <text x="100" y="130" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="white" text-anchor="middle">TS</text>
+</svg>

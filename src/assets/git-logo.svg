@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80">
+  <!-- GitHub Logo -->
+  <circle cx="100" cy="100" r="95" fill="#000000"/>
+  <g fill="white">
+    <!-- Simple Git icon -->
+    <circle cx="100" cy="80" r="25"/>
+    <circle cx="130" cy="120" r="20"/>
+    <circle cx="70" cy="120" r="20"/>
+    <line x1="100" y1="105" x2="130" y2="120" stroke="white" stroke-width="3"/>
+    <line x1="100" y1="105" x2="70" y2="120" stroke="white" stroke-width="3"/>
+  </g>
+</svg>

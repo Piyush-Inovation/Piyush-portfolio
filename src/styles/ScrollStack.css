@@ -1,0 +1,20 @@
+.scroll-stack-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50vh;
+    /* Add space for scrolling */
+}
+
+.scroll-stack-item {
+    position: sticky;
+    width: 100%;
+    margin-bottom: 4rem;
+    /* Increased spacing between cards */
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+/* Ensure smooth transitions */
+.scroll-stack-item * {
+    pointer-events: auto;
+}
