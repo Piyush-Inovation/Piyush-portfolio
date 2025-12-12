@@ -19,7 +19,7 @@ function AppContent({ theme, toggleTheme }) {
   return (
     <div className="app">
       <Suspense fallback={null}>
-        <LaserFlow color={theme === 'dark' ? "#00FF99" : "#00A669"} />
+        <LaserFlow color={theme === 'dark' ? "#00FF99" : "#005A3C"} />
       </Suspense>
       {isImageSliderPage ? (
         <ImageSliderNavbar theme={theme} toggleTheme={toggleTheme} />

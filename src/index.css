@@ -29,13 +29,13 @@ html, body {
 }
 
 [data-theme='light'] {
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F5F5F5;
+  --bg-primary: #dbdde0;
+  --bg-secondary: #E9ECEF;
   --text-primary: #1A1A1A;
   --text-secondary: rgba(26, 26, 26, 0.7);
-  --accent-color: #00A669;
+  --accent-color: #00764b;
   --border-color: rgba(0, 166, 105, 0.2);
-  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-bg: rgba(248, 249, 250, 0.9);
   --text-on-card: #1A1A1A;
   
   --card-border-subtle: rgba(0, 0, 0, 0.05);

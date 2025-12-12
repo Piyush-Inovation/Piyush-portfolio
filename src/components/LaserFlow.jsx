@@ -4,7 +4,7 @@ import * as THREE from 'three';
 function LaserFlow({
     color = '#00FF99',
     horizontalBeamOffset = 0.1,
-    verticalBeamOffset = 0.0
+    verticalBeamOffset = 0.1
 }) {
     const canvasRef = useRef(null);
     const [isLowPerformance, setIsLowPerformance] = useState(false);
@@ -40,15 +40,17 @@ function LaserFlow({
         });
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, isLowPerformance ? 1 : 2));
-        camera.position.z = 8; // Zoomed out from 5 to 8
+        renderer.setPixelRatio(1); // Lock to 1 to prevent scaling differences
+        camera.position.z = 5;
+        camera.fov = 75; // Lock field of view
+        camera.updateProjectionMatrix();
 
         // Create particle system
         const particlesGeometry = new THREE.BufferGeometry();
         const posArray = new Float32Array(particlesCount * 3);
 
         for (let i = 0; i < particlesCount * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 15; // Increased spread from 10 to 15
+            posArray[i] = (Math.random() - 0.5) * 10;
         }
 
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -79,14 +81,14 @@ function LaserFlow({
 
             lastTime = currentTime - (deltaTime % frameInterval);
 
-            particlesMesh.rotation.y += 0.003; // Increased from 0.001 to 0.003 (3x faster)
-            particlesMesh.rotation.x += 0.0015; // Increased from 0.0005 to 0.0015 (3x faster)
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x += 0.0005;
 
             // Animate particles (skip on low-end for better performance)
             if (!isLowPerformance) {
                 const positions = particlesGeometry.attributes.position.array;
                 for (let i = 0; i < positions.length; i += 3) {
-                    positions[i + 1] += Math.sin(Date.now() * 0.002 + i) * 0.002; // Increased speed 2x
+                    positions[i + 1] += Math.sin(Date.now() * 0.001 + i) * 0.001;
                 }
                 particlesGeometry.attributes.position.needsUpdate = true;
             }
@@ -122,10 +124,17 @@ function LaserFlow({
                 position: 'fixed',
                 top: 0,
                 left: 0,
-                width: '100%',
-                height: '100%',
+                width: '100vw',
+                height: '100vh',
                 zIndex: 0,
-                pointerEvents: 'none'
+                pointerEvents: 'none',
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
+                willChange: 'transform',
+                imageRendering: 'auto',
+                WebkitTransform: 'translateZ(0)',
+                WebkitFontSmoothing: 'antialiased'
             }}
         />
     );
