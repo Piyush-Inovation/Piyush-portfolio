@@ -2,7 +2,7 @@
   min-height: 100vh;
   padding: 120px 40px 0;
   margin-top: 10px;
-  background: var(--bg-primary);
+  background: transparent;
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
@@ -10,6 +10,8 @@
   overflow-x: hidden;
   border: none;
   outline: none;
+  position: relative;
+  z-index: 1;
   transform: translateZ(0);
   will-change: transform, opacity;
 }

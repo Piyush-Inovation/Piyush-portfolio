@@ -35,10 +35,10 @@ function Footer() {
   };
 
   return (
-    <footer className="footer-section">
+    <footer className="footer-section animate-fade-in">
       <div className="footer-content">
         {/* Section 1: Quick Links and Copyright */}
-        <div className="footer-top">
+        <div className="footer-top animate-slide-up" style={{animationDelay: '0.2s'}}>
           <div className="footer-links">
             <Link to="/" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link>
             <a 

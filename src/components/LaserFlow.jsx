@@ -41,14 +41,14 @@ function LaserFlow({
 
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, isLowPerformance ? 1 : 2));
-        camera.position.z = 5;
+        camera.position.z = 8; // Zoomed out from 5 to 8
 
         // Create particle system
         const particlesGeometry = new THREE.BufferGeometry();
         const posArray = new Float32Array(particlesCount * 3);
 
         for (let i = 0; i < particlesCount * 3; i++) {
-            posArray[i] = (Math.random() - 0.5) * 10;
+            posArray[i] = (Math.random() - 0.5) * 15; // Increased spread from 10 to 15
         }
 
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -79,14 +79,14 @@ function LaserFlow({
 
             lastTime = currentTime - (deltaTime % frameInterval);
 
-            particlesMesh.rotation.y += 0.001;
-            particlesMesh.rotation.x += 0.0005;
+            particlesMesh.rotation.y += 0.003; // Increased from 0.001 to 0.003 (3x faster)
+            particlesMesh.rotation.x += 0.0015; // Increased from 0.0005 to 0.0015 (3x faster)
 
             // Animate particles (skip on low-end for better performance)
             if (!isLowPerformance) {
                 const positions = particlesGeometry.attributes.position.array;
                 for (let i = 0; i < positions.length; i += 3) {
-                    positions[i + 1] += Math.sin(Date.now() * 0.001 + i) * 0.001;
+                    positions[i + 1] += Math.sin(Date.now() * 0.002 + i) * 0.002; // Increased speed 2x
                 }
                 particlesGeometry.attributes.position.needsUpdate = true;
             }
