@@ -10,6 +10,8 @@
   overflow-x: hidden;
   border: none;
   outline: none;
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 /* Slider Container - Image Slider Box */

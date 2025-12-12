@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
@@ -60,39 +59,13 @@ function Contact() {
         setIsPopupVisible(false);
     };
 
-    const sectionVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: 'easeOut' },
-        },
-    }
-
     return (
-        <motion.section
-            className="contact"
-            id="contact"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3 }}
-            variants={sectionVariants}
-        >
+        <section className="contact" id="contact">
             <div className="contact-container">
-                <motion.div className="contact-header" variants={itemVariants}>
+                <div className="contact-header">
                     <h2 className="contact-title">Let's Connect and Build</h2>
                     <p className="contact-subtitle">Send me a message below, or find me on social media.</p>
-                </motion.div>
+                </div>
 
                 <div className="contact-content">
                     {/* Contact Info */}
@@ -205,7 +178,7 @@ function Contact() {
                     </div>
                 </div>
             )}
-        </motion.section>
+        </section>
     );
 }
 

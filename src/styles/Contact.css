@@ -4,6 +4,8 @@
     color: var(--text-primary);
     max-width: 1200px;
     margin: 0 auto;
+    transform: translateZ(0);
+    will-change: transform, opacity;
 }
 
 .contact-container {

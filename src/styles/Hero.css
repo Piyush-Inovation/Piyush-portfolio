@@ -9,6 +9,8 @@
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 0;
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 .hero-content {
@@ -52,7 +54,7 @@
   font-weight: 600;
   color: var(--text-primary);
   background-color: transparent;
-  border: 2px solid var(--text-primary);
+  border: none;
   border-radius: 100px;
   cursor: pointer;
   transition: all 0.2s;
@@ -62,7 +64,7 @@
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  margin-top: 25px;
+  margin-top: 15px;
   position: relative;
   animation: moveInBottom 5s ease-out;
   animation-fill-mode: backwards;
@@ -80,14 +82,13 @@
   z-index: -1;
   transition: all 0.4s;
   background-color: transparent;
-  border: 2px solid var(--text-primary);
+  border: none;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   color: var(--accent-color);
-  border-color: var(--accent-color);
 }
 
 .cta-button:active {
@@ -117,11 +118,13 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   align-items: center;
-  margin-top: -1rem;
+  margin-top: -1.5rem;
   background-color: transparent;
   border-radius: 40px;
   padding: 2rem;
   transition: background-color 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .feature-card {
@@ -130,6 +133,8 @@
   transition: all 0.3s ease;
   backdrop-filter: blur(6px);
   border: 2px solid transparent;
+  transform: translateZ(0);
+  will-change: transform, background-color;
 }
 
 .feature-card:hover {
@@ -162,10 +167,10 @@
 }
 
 .feature-list li::before {
-  content: '■';
+  content: '›';
   position: absolute;
   left: 0;
-  top: -3px;
+  top: 0;
   color: var(--accent-color);
   font-weight: bold;
   font-size: 1.2rem;

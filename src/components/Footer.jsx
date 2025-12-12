@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Footer.css';
 import resumePDF from '../assets/resume.pdf';
@@ -35,37 +34,11 @@ function Footer() {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
   return (
-    <motion.footer
-      className="footer-section"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ amount: 0.3 }}
-      variants={containerVariants}
-    >
-      <motion.div className="footer-content" variants={containerVariants}>
+    <footer className="footer-section">
+      <div className="footer-content">
         {/* Section 1: Quick Links and Copyright */}
-        <motion.div className="footer-top" variants={itemVariants}>
+        <div className="footer-top">
           <div className="footer-links">
             <Link to="/" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link>
             <a 
@@ -100,10 +73,10 @@ function Footer() {
           <div className="footer-copyright">
             © 2025 Piyush Bramhankar. All Rights Reserved.
           </div>
-        </motion.div>
+        </div>
 
         {/* Section 2: Social Media & Contact */}
-        <motion.div className="footer-social" variants={itemVariants}>
+        <div className="footer-social">
           <div className="social-icons-left">
             <a 
               href="https://www.linkedin.com/in/piyush-bramhankar-a041b638b/" 
@@ -137,13 +110,13 @@ function Footer() {
             <span className="separator">|</span>
             <p className="footer-tagline">Made with ❤️ and Code</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Section 3: Personal Touch */}
-        <motion.div className="footer-bottom" variants={itemVariants}>
-        </motion.div>
-      </motion.div>
-    </motion.footer>
+        <div className="footer-bottom">
+        </div>
+      </div>
+    </footer>
   );
 }
 

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import '../styles/ImageSlider.css';
 import boyImage from '../assets/my-photo.jpg';
@@ -15,27 +14,6 @@ import apiLogo from '../assets/api-logo.svg';
 import nodejsLogo from '../assets/nodejs-logo.svg';
 
 function ImageSlider() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
-
   // Skills data
   const skillsData = [
     // Section 1: Core Frontend Stack
@@ -132,26 +110,20 @@ function ImageSlider() {
   ];
 
   return (
-    <motion.section
-      className="image-slider-page"
-      id="image-slider"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-    >
+    <section className="image-slider-page" id="image-slider">
       {/* Content Section */}
-      <motion.div className="slider-content" id="about-me" variants={containerVariants}>
+      <div className="slider-content" id="about-me">
         {/* Left - Image */}
-        <motion.div className="content-left" variants={itemVariants}>
+        <div className="content-left">
           <div className="boy-image-circle">
             <div className="image-border">
               <img src={boyImage} alt="Piyush" className="boy-image" />
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right - Text Content */}
-        <motion.div className="content-right" variants={itemVariants}>
+        <div className="content-right">
           <h2 className="content-title">
             <span className="greeting">Hello & Welcome:</span>
             <span className="subtitle">My Professional Focus</span>
@@ -166,86 +138,67 @@ function ImageSlider() {
               My core mission is dedicated to: developing user-centric and highly efficient web applications that combine functionality with exceptional user experience. My initiation into development began through self-exploration of foundational technologies like HTML, which quickly evolved into a passion for mastering the entire development lifecycle. I am currently concentrating on solidifying my expertise in modern front-end frameworks while preparing for a strategic move into specialized back-end roles in the future, ensuring I remain a versatile asset across the full technology stack.
             </p>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Education & Professional Trajectory Section */}
-      <motion.div
-        className="education-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.1, once: false }}
-        variants={containerVariants}
-      >
-        <motion.h2 className="education-heading" variants={itemVariants}>
+      <div className="education-section">
+        <h2 className="education-heading">
           🎓 Education & Professional Trajectory
-        </motion.h2>
-        <motion.p className="education-paragraph" variants={itemVariants}>
+        </h2>
+        <p className="education-paragraph">
           My foundational learning is currently culminating in my final year of study, building a strong base in computer science principles and software development.
-        </motion.p>
+        </p>
 
         {/* Academic Timeline */}
-        <motion.div
-          className="timeline-section"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ amount: 0.1, once: false }}
-          variants={containerVariants}
-        >
-          <motion.h3 className="timeline-title" variants={itemVariants}>
+        <div className="timeline-section">
+          <h3 className="timeline-title">
             Academic Timeline
-          </motion.h3>
+          </h3>
 
-          <motion.div className="timeline-container" variants={containerVariants}>
+          <div className="timeline-container">
             {/* Timeline Item 1 */}
-            <motion.div className="timeline-item" variants={itemVariants}>
+            <div className="timeline-item">
               <div className="timeline-year">2023 - 2026<br />(Expected Passout: 2026)</div>
               <div className="timeline-content">
                 <div className="timeline-institution">Sanjay Rungta College of Science and Institute</div>
                 <div className="timeline-qualification">Bachelor of Computer Applications (BCA)</div>
                 <div className="timeline-highlight">Currently focused on advanced front-end frameworks and application building.</div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Timeline Item 2 */}
-            <motion.div className="timeline-item" variants={itemVariants}>
+            <div className="timeline-item">
               <div className="timeline-year">2021 - 2023</div>
               <div className="timeline-content">
                 <div className="timeline-institution">Bharti Vidya Mandir Higher Secondary School</div>
                 <div className="timeline-qualification">HSC (12th Grade)</div>
                 <div className="timeline-highlight">Strong technical background secured through PCM (Physics, Chemistry, Math) from the State Board.</div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Timeline Item 3 */}
-            <motion.div className="timeline-item" variants={itemVariants}>
+            <div className="timeline-item">
               <div className="timeline-year">Till 2021</div>
               <div className="timeline-content">
                 <div className="timeline-institution">Wadhwa Hr. Sec. School</div>
                 <div className="timeline-qualification">SSC (10th Grade)</div>
                 <div className="timeline-highlight">Completed secondary education with a foundational academic record.</div>
               </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Core Competencies Section */}
-      <motion.div
-        className="competencies-heading-section"
-        id="tech-stack"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.1, once: false }}
-        variants={containerVariants}
-      >
-        <motion.h2 className="competencies-heading" variants={itemVariants}>
+      <div className="competencies-heading-section" id="tech-stack">
+        <h2 className="competencies-heading">
           🛠️ Core Competencies & Technical Stack
-        </motion.h2>
+        </h2>
 
-        <motion.p className="competencies-paragraph" variants={itemVariants}>
+        <p className="competencies-paragraph">
           My technical profile is concentrated on building modern, efficient web experiences using in-demand technologies. The following stack represents my strongest abilities, gained through intensive academic and practical internship experience. I focus on frameworks that ensure scalability, performance, and maintainability.
-        </motion.p>
+        </p>
 
         {/* Skills Grid - Grouped by Section */}
         {skillsData.reduce((acc, skill) => {
@@ -257,29 +210,19 @@ function ImageSlider() {
           }
           return acc;
         }, []).map((group, groupIndex) => (
-          <motion.div key={groupIndex}>
-            <motion.h3 
-              className="skills-section-heading"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ amount: 0.3 }}
-              variants={itemVariants}
-            >
+          <div key={groupIndex}>
+            <h3 className="skills-section-heading">
               {group.section === 'Core Frontend Stack' && '1. Core Frontend Stack'}
               {group.section === 'Foundations & Development Workflow' && '2. Foundations & Development Workflow (The Base)'}
               {group.section === 'API & Future Exposure' && '3. API & Future Exposure (The Growth Plan)'}
-            </motion.h3>
+            </h3>
 
             {group.skills.map((skill) => (
-              <motion.div
+              <div
                 key={skill.id}
                 className={`skills-row ${skill.isReverse ? 'skills-row-reverse' : ''}`}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ amount: 0.3 }}
-                variants={containerVariants}
               >
-                <motion.div className="skills-left" variants={itemVariants}>
+                <div className="skills-left">
                   {!skill.isReverse ? (
                     <div className="skill-heading-wrapper">
                       {typeof skill.logo === 'string' && skill.logo.length === 2 ? (
@@ -292,9 +235,9 @@ function ImageSlider() {
                   ) : (
                     <p className="skill-description">{skill.description}</p>
                   )}
-                </motion.div>
+                </div>
 
-                <motion.div className="skills-right" variants={itemVariants}>
+                <div className="skills-right">
                   {skill.isReverse ? (
                     <div className="skill-heading-wrapper">
                       {typeof skill.logo === 'string' && skill.logo.length === 2 ? (
@@ -307,36 +250,26 @@ function ImageSlider() {
                   ) : (
                     <p className="skill-description">{skill.description}</p>
                   )}
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Professional Experience Section */}
-      <motion.div
-        className="experience-section"
-        id="experience"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.1, once: false }}
-        variants={containerVariants}
-      >
-        <motion.h2 className="experience-heading" variants={itemVariants}>
+      <div className="experience-section" id="experience">
+        <h2 className="experience-heading">
           💼 Professional Experience & Internships
-        </motion.h2>
-        <motion.p className="experience-paragraph" variants={itemVariants}>
+        </h2>
+        <p className="experience-paragraph">
           My professional journey is built on practical application, demonstrated through intensive internships focused on both foundational backend architecture and modern frontend execution. This hands-on experience has directly shaped my Full Stack aspiration.
-        </motion.p>
+        </p>
 
         {/* Experience Timeline */}
-        <motion.div
-          className="experience-timeline-container"
-          variants={containerVariants}
-        >
+        <div className="experience-timeline-container">
           {/* Current Internship - MERN Stack */}
-          <motion.div className="experience-card" variants={itemVariants}>
+          <div className="experience-card">
             <div className="experience-badge current">Current</div>
             <div className="experience-header">
               <h3 className="experience-role">Front-End Developer Intern</h3>
@@ -362,10 +295,10 @@ function ImageSlider() {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </div>
 
           {/* Foundational Internship - Java */}
-          <motion.div className="experience-card" variants={itemVariants}>
+          <div className="experience-card">
             <div className="experience-badge completed">Completed</div>
             <div className="experience-header">
               <h3 className="experience-role">Java Developer Intern / Trainee</h3>
@@ -391,21 +324,15 @@ function ImageSlider() {
                 </li>
               </ul>
             </div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </div>
+        </div>
+      </div>
 
       {/* Footer Section */}
-      <motion.footer
-        className="footer-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ amount: 0.1, once: false }}
-        variants={containerVariants}
-      >
-        <motion.div className="footer-content" variants={containerVariants}>
+      <footer className="footer-section">
+        <div className="footer-content">
           {/* Section 1: Quick Links and Copyright */}
-          <motion.div className="footer-top" variants={itemVariants}>
+          <div className="footer-top">
             <div className="footer-links">
               <a href="/#hero" className="footer-link">Home</a>
               <a href="/image-slider" className="footer-link">About Me</a>
@@ -416,10 +343,10 @@ function ImageSlider() {
             <div className="footer-copyright">
               © 2025 Piyush Bramhankar. All Rights Reserved.
             </div>
-          </motion.div>
+          </div>
 
           {/* Section 2: Social Media & Contact */}
-          <motion.div className="footer-social" variants={itemVariants}>
+          <div className="footer-social">
             <div className="social-icons-left">
               <a 
                 href="https://www.linkedin.com/in/your-profile" 
@@ -453,14 +380,14 @@ function ImageSlider() {
               <span className="separator">|</span>
               <p className="footer-tagline">Made with ❤️ and Code</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Section 3: Personal Touch */}
-          <motion.div className="footer-bottom" variants={itemVariants}>
-          </motion.div>
-        </motion.div>
-      </motion.footer>
-    </motion.section>
+          <div className="footer-bottom">
+          </div>
+        </div>
+      </footer>
+    </section>
   );
 }
 

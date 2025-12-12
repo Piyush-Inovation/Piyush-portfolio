@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import '../styles/SelectedWorks.css';
 import ScrollReveal from './ScrollReveal';
 
@@ -49,46 +48,17 @@ function SelectedWorks() {
         setCurrentSlide(prev => (prev === 0 ? projects.length - 1 : prev - 1));
     };
 
-    const sectionVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-            },
-        },
-    }
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: 'easeOut' },
-        },
-    }
-
     return (
-        <motion.section
-            className="selected-works section"
-            id="work"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 0.3 }}
-            variants={sectionVariants}
-        >
+        <section className="selected-works section" id="work">
             <div className="container">
                 <ScrollReveal>
-                    <motion.div className="section-title-wrapper" variants={itemVariants}>
+                    <div className="section-title-wrapper">
                         <h2 className="section-title">Recent Projects</h2>
-                    </motion.div>
+                    </div>
                 </ScrollReveal>
 
                 <ScrollReveal threshold={0.1}>
-                    <motion.div
-                        className="slider-container"
-                        variants={itemVariants}
-                    >
+                    <div className="slider-container">
                         <div
                             className="slider-track"
                             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -134,10 +104,10 @@ function SelectedWorks() {
 
                         <button className="slider-btn prev" onClick={prevSlide}>&#10094;</button>
                         <button className="slider-btn next" onClick={nextSlide}>&#10095;</button>
-                    </motion.div>
+                    </div>
                 </ScrollReveal>
             </div>
-        </motion.section>
+        </section>
     );
 }
 
