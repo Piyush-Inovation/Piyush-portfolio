@@ -41,7 +41,7 @@ function LaserFlow({
 
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(1); // Lock to 1 to prevent scaling differences
-        camera.position.z = 5;
+        camera.position.z = 7;
         camera.fov = 75; // Lock field of view
         camera.updateProjectionMatrix();
 
