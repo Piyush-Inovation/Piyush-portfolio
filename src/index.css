@@ -69,7 +69,10 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: var(--bg-primary);
+  background:
+    radial-gradient(circle at top right, rgba(0, 255, 153, 0.08), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(0, 255, 153, 0.05), transparent 20%),
+    var(--bg-primary);
   transition: background-color 0.4s ease;
   width: 100%;
   min-height: 100vh;
@@ -96,6 +99,10 @@ button {
 button:focus,
 button:focus-visible {
   outline: none;
+}
+
+section {
+  scroll-margin-top: 96px;
 }
 
 /* Scrollbar Styling */

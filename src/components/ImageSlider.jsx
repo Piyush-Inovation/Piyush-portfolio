@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../styles/ImageSlider.css';
-import boyImage from '../assets/my-photo.jpg';
+import boyImage from '../assets/image.png';
 // Import logos
 import reactLogo from '../assets/react-logo.svg';
 import nextjsLogo from '../assets/nextjs-logo.svg';

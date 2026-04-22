@@ -5,6 +5,7 @@
 }
 
 .app {
+  position: relative;
   background-color: var(--bg-primary);
   min-height: 100vh;
   width: 100%;
@@ -14,4 +15,43 @@
   overflow-x: hidden;
   border: none;
   outline: none;
+}
+
+.app::before,
+.app::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(10px);
+}
+
+.app::before {
+  top: -100px;
+  right: -80px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(0, 255, 153, 0.08), transparent 70%);
+}
+
+.app::after {
+  left: -100px;
+  bottom: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 255, 153, 0.05), transparent 70%);
+}
+
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section {
+  scroll-margin-top: 100px;
+}
+
+.container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
 }

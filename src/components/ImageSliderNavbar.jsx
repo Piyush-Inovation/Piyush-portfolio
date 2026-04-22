@@ -42,7 +42,7 @@ function ImageSliderNavbar({ theme, toggleTheme }) {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
             <li>
-              <Link to="/" className="nav-link" onClick={closeMobileMenu}>
+              <Link to="" className="nav-link" onClick={closeMobileMenu}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'translateY(-2px)' }}>
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 </svg>

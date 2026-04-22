@@ -15,10 +15,10 @@
 }
 
 .navbar.scrolled {
-  background-color: rgba(11, 15, 14, 0.6);
-  backdrop-filter: blur(10px) saturate(120%);
-  -webkit-backdrop-filter: blur(10px) saturate(120%);
-  border-bottom: none;
+  background-color: rgba(11, 15, 14, 0.72);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border-bottom: 1px solid rgba(0, 255, 153, 0.08);
 }
 
 [data-theme="light"] .navbar {
@@ -86,6 +86,21 @@
   margin: 0;
   padding: 0;
   align-items: center;
+}
+
+.nav-hire-button {
+  margin-left: 1rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-color), rgba(0, 255, 153, 0.7));
+  color: #04110b;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(0, 255, 153, 0.15);
+}
+
+.nav-hire-button:hover {
+  transform: translateY(-2px);
 }
 
 .nav-menu li a {
@@ -227,6 +242,10 @@
 
   .theme-toggle {
     margin-left: 1rem;
+  }
+
+  .nav-hire-button {
+    display: none;
   }
 }
 

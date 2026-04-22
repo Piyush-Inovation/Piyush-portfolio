@@ -87,21 +87,22 @@
 /* Project Grid */
 .project-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-rows: auto auto auto;
   gap: 20px;
   align-items: stretch;
 }
 
 /* Video */
 .project-video {
-  grid-column: 1 / span 2;
+  grid-column: 1 / 7;
   grid-row: 1 / 2;
+  height: 340px;
 }
 
 .video-placeholder {
   width: 100%;
-  height: 300px;
+  height: 100%;
   background-color: #000;
   border-radius: 15px;
   display: flex;
@@ -109,127 +110,103 @@
   justify-content: center;
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease;
 }
 
-.video-placeholder:hover {
-  transform: scale(1.02);
-}
-
-/* Info Cards */
+.project-tech,
 .project-purpose,
-.project-functions,
+.project-functions {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 255, 153, 0.1);
+}
+
 .project-tech {
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  background: var(--bg-secondary);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
-  border: 1px solid var(--card-border-subtle);
+  grid-column: 7 / 11;
+  grid-row: 1 / 2;
+  height: 340px;
 }
 
-.project-purpose h3,
-.project-functions h3,
-.project-tech h3 {
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  margin: 0;
-  /* Reset default margin for flex alignment */
+.project-purpose {
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  width: 100%;
 }
 
-/* Header for Purpose card to align Title and Icon */
+.project-functions {
+  grid-column: 6 / 11;
+  grid-row: 2 / 3;
+  width: 100%;
+}
+
 .project-purpose-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   margin-bottom: 1rem;
-}
-
-.github-link {
-  color: var(--text-on-card);
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: flex;
-  align-items: center;
-}
-
-.github-link:hover {
-  color: var(--accent-color);
-  transform: scale(1.1);
-}
-
-.project-purpose p,
-.project-functions li,
-.project-tech li {
-  color: var(--text-on-card);
-  line-height: 1.6;
 }
 
 .project-tech ul,
 .project-functions ul {
   list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .project-tech li,
 .project-functions li {
-  background: var(--chip-bg);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  padding-left: 1rem;
+  position: relative;
 }
 
-/* Hover Effects */
-.project-purpose:hover,
-.project-functions:hover,
-.project-tech:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 255, 153, 0.1);
-  border: 1px solid var(--accent-color);
+.project-tech li::before,
+.project-functions li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
 }
 
-/* Grid Placement - SWAPPED Purpose and Tech Stack */
-.project-purpose {
-  grid-column: 3 / 4;
-  grid-row: 1 / 3;
+.github-link {
+  color: var(--accent-color);
 }
 
-.project-tech {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+[data-theme='light'] .section-title {
+  color: #0b5f45;
+  -webkit-text-stroke: 0;
 }
 
-.project-functions {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
+[data-theme='light'] .section-title::after {
+  opacity: 0.9;
+  background-color: rgba(0, 118, 75, 0.55);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .section-title {
-    font-size: 50px;
-  }
+[data-theme='light'] .project-tech,
+[data-theme='light'] .project-purpose,
+[data-theme='light'] .project-functions {
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(0, 118, 75, 0.26);
+}
 
+[data-theme='light'] .video-placeholder {
+  background-color: rgba(6, 24, 18, 0.94);
+  border: 1px solid rgba(0, 118, 75, 0.5);
+}
+
+@media (max-width: 1024px) {
   .project-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
   }
 
-  .project-video,
-  .project-tech,
+  .project-video {
+    grid-column: auto;
+  }
+
   .project-purpose,
-  .project-functions {
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  .slider-btn {
-    padding: 10px 15px;
+  .project-functions,
+  .project-tech {
+    grid-column: auto;
   }
 }

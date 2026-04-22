@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import '../styles/Navbar.css'
 import resumePDF from '../assets/resume.pdf'
+import { useLocation } from 'react-router-dom'
 
 function Navbar({ theme, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +25,10 @@ function Navbar({ theme, toggleTheme }) {
     setIsMobileMenuOpen(false)
   }
 
+  const getSectionLink = (sectionId) => {
+    return location.pathname === '/' ? `#${sectionId}` : `/#${sectionId}`
+  }
+
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
@@ -37,7 +42,7 @@ function Navbar({ theme, toggleTheme }) {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
             <li>
-              <a href="#home" className="nav-link" onClick={closeMobileMenu}>
+              <a href={getSectionLink('home')} className="nav-link" onClick={closeMobileMenu}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'translateY(-2px)' }}>
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 </svg>
@@ -45,22 +50,21 @@ function Navbar({ theme, toggleTheme }) {
               </a>
             </li>
             <li>
-              <a href="#work" className="nav-link" onClick={closeMobileMenu}>
+              <a href="/about" className="nav-link" onClick={closeMobileMenu}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"></path>
+                </svg>
+                About
+              </a>
+            </li>
+            <li>
+              <a href={getSectionLink('work')} className="nav-link" onClick={closeMobileMenu}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="16 18 22 12 16 6"></polyline>
                   <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
-                Work
+                Projects
               </a>
-            </li>
-            <li>
-              <Link to="/image-slider#about-me" className="nav-link" onClick={closeMobileMenu}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                About
-              </Link>
             </li>
             <li>
               <a href={resumePDF} download="Piyush_Bramhankar_Resume.pdf" className="nav-link" onClick={closeMobileMenu}>
@@ -75,7 +79,15 @@ function Navbar({ theme, toggleTheme }) {
               </a>
             </li>
             <li>
-              <a href="#contact" className="nav-link" onClick={closeMobileMenu}>
+              <a href={getSectionLink('testimonials')} className="nav-link" onClick={closeMobileMenu}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Testimonials
+              </a>
+            </li>
+            <li>
+              <a href={getSectionLink('contact')} className="nav-link" onClick={closeMobileMenu}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
@@ -84,6 +96,7 @@ function Navbar({ theme, toggleTheme }) {
               </a>
             </li>
           </ul>
+          <a href={getSectionLink('contact')} className="nav-hire-button">Hire Me</a>
           <button
             className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
             onClick={toggleMobileMenu}

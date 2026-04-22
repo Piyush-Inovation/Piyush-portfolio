@@ -63,13 +63,22 @@ function Contact() {
         <section className="contact" id="contact">
             <div className="contact-container">
                 <div className="contact-header">
-                    <h2 className="contact-title">Let's Connect and Build</h2>
-                    <p className="contact-subtitle">Send me a message below, or find me on social media.</p>
+                    <div className="section-eyebrow">Contact</div>
+                    <h2 className="contact-title">Let’s build your website together</h2>
+                    <p className="contact-subtitle">Tell me what you’re building and I’ll help turn it into a clean, high-converting website.</p>
                 </div>
 
                 <div className="contact-content">
-                    {/* Contact Info */}
                     <div className="contact-info">
+                        <div className="contact-cta-card">
+                            <h3>Need a fast, professional website?</h3>
+                            <p>I’m available for freelance work and can help with business sites, landing pages, and redesigns.</p>
+                            <div className="contact-mini-actions">
+                                <a href="#contact-form" className="contact-mini-button primary">Hire Me</a>
+                                <a href="mailto:piyush.bramhankar027@gmail.com" className="contact-mini-button">Email Me</a>
+                            </div>
+                        </div>
+
                         <div className="info-item">
                             <h3 className="info-label">Email</h3>
                             <a href="mailto:piyush.bramhankar027@gmail.com" className="info-value">piyush.bramhankar027@gmail.com</a>
@@ -100,8 +109,7 @@ function Contact() {
                         </div>
                     </div>
 
-                    {/* Contact Form */}
-                    <form className="contact-form" onSubmit={handleSubmit}>
+                    <form className="contact-form" id="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Name *</label>
                             <input

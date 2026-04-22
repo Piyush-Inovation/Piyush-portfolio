@@ -7,6 +7,7 @@ import AboutJourney from './components/AboutJourney'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ImageSlider from './components/ImageSlider'
+import SimpleChatbot from './components/SimpleChatbot'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 
@@ -14,12 +15,12 @@ const LaserFlow = lazy(() => import('./components/LaserFlow'))
 
 function AppContent({ theme, toggleTheme }) {
   const location = useLocation()
-  const isImageSliderPage = location.pathname === '/image-slider'
+  const isImageSliderPage = location.pathname === '/image-slider' || location.pathname === '/about'
 
   return (
     <div className="app">
       <Suspense fallback={null}>
-        <LaserFlow color={theme === 'dark' ? "#00FF99" : "#005A3C"} />
+          <LaserFlow color={theme === 'dark' ? "#00FF99" : "#005A3C"} />
       </Suspense>
       {isImageSliderPage ? (
         <ImageSliderNavbar theme={theme} toggleTheme={toggleTheme} />
@@ -32,13 +33,14 @@ function AppContent({ theme, toggleTheme }) {
           element={
             <>
               <Hero />
-              <SelectedWorks />
               <AboutJourney />
+              <SelectedWorks />
               <Contact />
               <Footer />
             </>
           }
         />
+        <Route path="/about" element={<ImageSlider />} />
         <Route path="/image-slider" element={<ImageSlider />} />
       </Routes>
     </div>
@@ -46,16 +48,7 @@ function AppContent({ theme, toggleTheme }) {
 }
 
 function App() {
-  const [showBackground, setShowBackground] = useState(false)
   const [theme, setTheme] = useState('dark')
-
-  useEffect(() => {
-    // Load background after main content is visible
-    const timer = setTimeout(() => {
-      setShowBackground(true)
-    }, 100)
-    return () => clearTimeout(timer)
-  }, [])
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -68,6 +61,7 @@ function App() {
   return (
     <Router>
       <AppContent theme={theme} toggleTheme={toggleTheme} />
+      <SimpleChatbot />
     </Router>
   )
 }
