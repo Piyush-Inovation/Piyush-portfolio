@@ -17,13 +17,44 @@
   outline: none;
 }
 
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(14px) scale(0.995);
+  transition: opacity 460ms ease, transform 460ms ease;
+}
+
+.scroll-animate.is-inview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 480ms ease, transform 480ms ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate,
+  .scroll-animate.is-inview {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 .app::before,
 .app::after {
   content: '';
   position: fixed;
   pointer-events: none;
   z-index: 0;
-  filter: blur(10px);
 }
 
 .app::before {

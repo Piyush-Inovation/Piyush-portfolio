@@ -21,6 +21,7 @@ const projects = [
     purpose: {
       problem: 'Teams needed a cleaner way to track tasks without losing focus in messy interfaces.',
       solution: 'Built a crisp, conversion-friendly dashboard with quick actions, clear hierarchy, and mobile-first usability.',
+      result: 'Improved usability and faster daily task flow for team members.',
     },
     functions: ['Task CRUD Flow', 'User Authentication', 'Responsive Dashboard'],
   },
@@ -36,6 +37,7 @@ const projects = [
     purpose: {
       problem: 'A service business needed a site that looked premium and converted visitors into inquiries.',
       solution: 'Delivered a polished landing experience with strong CTA placement, trust elements, and fast performance.',
+      result: 'Better lead capture clarity with a stronger contact conversion journey.',
     },
     functions: ['Lead Capture Sections', 'Service Highlights', 'Contact Conversion'],
   },
@@ -51,6 +53,7 @@ const projects = [
     purpose: {
       problem: 'Users needed a smoother path from browsing products to checkout with fewer drop-offs.',
       solution: 'Created a clean storefront layout that supports fast decisions, payments, and order confidence.',
+      result: 'Reduced checkout friction and improved buyer confidence on mobile and desktop.',
     },
     functions: ['Cart Management', 'Payment Gateway', 'Order Tracking'],
   },
@@ -66,6 +69,7 @@ const projects = [
     purpose: {
       problem: 'Data-heavy products often confuse users with cluttered analytics and weak visual hierarchy.',
       solution: 'Delivered an elegant dashboard with readable charts, real-time updates, and polished presentation.',
+      result: 'Made key insights easier to understand for faster stakeholder decisions.',
     },
     functions: ['Data Visualization', 'Real-time Updates', 'AI Predictions'],
   },
@@ -177,12 +181,12 @@ function SelectedWorks() {
                     </div>
 
                     <div className="project-action-row">
-                      <a href={project.demoUrl} target="_blank" rel="noreferrer noopener" className="project-button primary">
-                        Live Demo
-                      </a>
-                      <button type="button" className="project-button secondary" onClick={() => setActiveProject(project)}>
-                        View Details
+                      <button type="button" className="project-button primary" onClick={() => setActiveProject(project)}>
+                        View Project
                       </button>
+                      <a href={project.demoUrl} target="_blank" rel="noreferrer noopener" className="project-live-link">
+                        Live Demo ↗
+                      </a>
                     </div>
                   </div>
                 </article>
@@ -190,6 +194,11 @@ function SelectedWorks() {
             })}
           </div>
         </ScrollReveal>
+
+        <div className="projects-bottom-cta">
+          <p>Want a similar website? Let’s talk.</p>
+          <a href="#contact" className="projects-bottom-cta-btn">Hire Me</a>
+        </div>
       </div>
 
       {activeProject ? (
@@ -217,6 +226,7 @@ function SelectedWorks() {
                 <h4>Purpose</h4>
                 <p><strong>Problem:</strong> {activeProject.purpose.problem}</p>
                 <p><strong>Solution:</strong> {activeProject.purpose.solution}</p>
+                <p><strong>Result:</strong> {activeProject.purpose.result}</p>
               </div>
 
               <div className="project-modal-block">

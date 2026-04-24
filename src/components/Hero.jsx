@@ -1,5 +1,4 @@
 import '../styles/Hero.css'
-import resumePDF from '../assets/resume.pdf'
 import boyImage from '../assets/Mumbai.jpeg'
 
 function Hero() {
@@ -7,19 +6,18 @@ function Hero() {
     <section className="hero" id="home">
       <div className="hero-content">
         <h1 className="hero-title">
-          <span className="hero-title-main">Frontend Developer</span>
-          <span className="hero-title-sub">I build modern websites for businesses</span>
+          <span className="hero-title-main">Full Stack Developer</span>
+          <span className="hero-title-sub">I build fast, modern, and scalable websites that help businesses grow online.</span>
         </h1>
 
         <div className="hero-section">
           <p className="hero-description">
-            I help businesses build fast, modern, and responsive websites that convert visitors into customers.
+            From frontend design to backend functionality, I create complete web solutions tailored to your needs. Have a project in mind? Let’s build it together.
           </p>
 
           <div className="hero-actions">
             <a href="#work" className="cta-button">View Projects</a>
             <a href="#contact" className="cta-button">Hire Me</a>
-            <a href={resumePDF} download="Piyush_Bramhankar_Resume.pdf" className="cta-button">Download Resume</a>
           </div>
         </div>
       </div>

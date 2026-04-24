@@ -1,17 +1,29 @@
 import '../styles/Footer.css';
 import resumePDF from '../assets/resume.pdf';
+import { useLocation } from 'react-router-dom';
 
 function Footer() {
+  const location = useLocation();
+
+  const getSectionLink = (sectionId) => {
+    return location.pathname === '/' ? `#${sectionId}` : `/#${sectionId}`;
+  };
+
   return (
     <footer className="footer-section">
       <div className="footer-content">
+        <div className="footer-cta-banner">
+          <p>Ready to launch a website that wins clients?</p>
+          <a href={getSectionLink('contact')} className="footer-cta-button">Hire Me</a>
+        </div>
+
         <div className="footer-top">
           <div className="footer-links">
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#services" className="footer-link">Services</a>
-            <a href="#work" className="footer-link">Projects</a>
-            <a href="#testimonials" className="footer-link">Testimonials</a>
-            <a href="#contact" className="footer-link">Contact</a>
+            <a href={getSectionLink('home')} className="footer-link">Home</a>
+            <a href={getSectionLink('services')} className="footer-link">Services</a>
+            <a href={getSectionLink('work')} className="footer-link">Projects</a>
+            <a href={getSectionLink('testimonials')} className="footer-link">Testimonials</a>
+            <a href={getSectionLink('contact')} className="footer-link">Contact</a>
             <a href={resumePDF} download="Piyush_Bramhankar_Resume.pdf" className="footer-link">Resume</a>
           </div>
           <div className="footer-copyright">

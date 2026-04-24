@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var l = window.location;
+        var segments = l.pathname.split('/').filter(Boolean);
+        var knownRoutes = ['about', 'image-slider'];
+
+        var first = segments[0] || '';
+        var repoBase = first && !knownRoutes.includes(first) ? '/' + first : '';
+        var routeSegments = repoBase ? segments.slice(1) : segments;
+
+        var routePath = routeSegments.join('/').replace(/&/g, '~and~');
+        var query = l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '';
+
+        l.replace(
+          l.protocol +
+            '//' +
+            l.hostname +
+            (l.port ? ':' + l.port : '') +
+            repoBase +
+            '/?/' +
+            routePath +
+            query +
+            l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

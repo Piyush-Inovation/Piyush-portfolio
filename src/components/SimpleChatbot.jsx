@@ -1,51 +1,67 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import '../styles/SimpleChatbot.css'
+import chatbotIcon from '../assets/chatbot.png'
 
 const knowledgeBase = [
   {
     keywords: ['skills', 'tech', 'stack', 'frontend', 'react', 'next', 'typescript', 'javascript'],
     answer:
-      'I primarily work in the React ecosystem: React, modern JavaScript, responsive UI architecture, performance-first implementation, and clean component-based code. I also have exposure to Next.js, TypeScript, state management, and API integrations.',
+      'I work with React, Next.js, Node.js, TypeScript, and API integrations to build fast, scalable web solutions.',
   },
   {
     keywords: ['services', 'offer', 'what do you do', 'website development', 'landing page', 'redesign'],
     answer:
-      'I offer three main freelance services: 1) Website Development, 2) Landing Page Design, and 3) Website Redesign. The goal is always business-focused: better trust, better UX, and better lead conversion.',
+      'I offer website development, landing page design, and website redesign focused on better conversion and user experience.',
   },
   {
     keywords: ['availability', 'available', 'start', 'timeline', 'urgent'],
     answer:
-      'Yes, I am available for freelance projects. I can usually start quickly for landing pages and short website scopes. If you share your timeline in the contact form, I can confirm delivery windows clearly.',
+      'Yes, I’m currently available for freelance work. Share your timeline and I’ll confirm scope and delivery quickly.',
+  },
+  {
+    keywords: ['delivery', 'deliver', 'how fast', 'deadline', 'speed'],
+    answer:
+      'Delivery time depends on scope, but most landing pages are delivered quickly. I confirm timelines before starting.',
   },
   {
     keywords: ['pricing', 'price', 'cost', 'budget', 'charges', 'starting'],
     answer:
-      'Pricing depends on scope and features, but typical starting points are: Landing Page from ₹8k, Website Redesign from ₹12k, and Website Development from ₹15k. For accurate pricing, share your exact requirements.',
+      'Pricing depends on scope. Typical starting ranges are ₹8k–₹15k+, and I provide a clear quote after reviewing your requirements.',
   },
   {
     keywords: ['process', 'how do you work', 'workflow', 'steps'],
     answer:
-      'My process is simple and transparent: 1) Discuss, 2) Build, 3) Review, 4) Deliver. You get regular updates and clean handoff-ready code.',
+      'My process: Discuss → Build → Review → Deliver. You get clear updates and milestone-based progress throughout.',
   },
   {
     keywords: ['projects', 'portfolio', 'work', 'case study', 'result'],
     answer:
-      'In the Recent Projects section, each project is shown with business context (purpose and functions). The focus is on real-world outcomes: modern UI, responsive behavior, and better customer engagement.',
+      'Recent projects highlight business goals, implementation approach, and outcomes—so you can see how I solve real product problems.',
+  },
+  {
+    keywords: ['scratch', 'from scratch', 'full project', 'complete website', 'full stack'],
+    answer:
+      'Yes, I can build your project from scratch, including frontend, backend, and deployment support.',
+  },
+  {
+    keywords: ['maintenance', 'support', 'after delivery', 'post launch'],
+    answer:
+      'Yes, I provide post-delivery support and maintenance plans based on your project needs.',
   },
   {
     keywords: ['contact', 'email', 'hire', 'connect', 'resume'],
     answer:
-      'You can hire me directly from the Contact section. The fastest method is the contact form or email at piyush.bramhankar027@gmail.com. You can also download my resume from the navigation/hero buttons.',
+      'You can hire me via the Contact form, email, or WhatsApp. I usually respond within 24–48 hours.',
   },
   {
     keywords: ['about', 'who are you', 'piyush', 'background', 'journey'],
     answer:
-      'I am Piyush Bramhankar, a frontend developer focused on helping businesses launch modern, high-converting websites. My approach combines clean visuals, responsive design, and conversion-focused page structure.',
+      'I’m Piyush Bramhankar, a full stack developer focused on building modern websites and web apps that support business growth.',
   },
 ]
 
 const fallbackAnswer =
-  'Great question. For the most accurate answer, please share your exact requirement in the contact form and I will reply with a clear plan. If needed, we can integrate advanced AI services (like ChatGPT/Gemini APIs) for even deeper real-time responses.'
+  'Thanks for the question. Share your requirement in the contact form, and I’ll reply with a clear plan and estimate.'
 
 const findBestAnswer = (question) => {
   const normalized = question.toLowerCase()
@@ -75,7 +91,17 @@ function SimpleChatbot() {
   const [input, setInput] = useState('')
   const messagesContainerRef = useRef(null)
 
-  const quickReplies = useMemo(() => ['Skills', 'Services', 'Pricing', 'Availability', 'Process', 'Contact'], [])
+  const quickReplies = useMemo(
+    () => [
+      'What services do you offer?',
+      'What is your pricing?',
+      'How fast can you deliver?',
+      'Can you build my project from scratch?',
+      'Do you provide maintenance after delivery?',
+      'How can I contact you quickly?',
+    ],
+    []
+  )
 
   const respond = (value) => {
     const reply = findBestAnswer(value)
@@ -147,8 +173,8 @@ function SimpleChatbot() {
       )}
 
       {!open && (
-        <button className="chatbot-launcher" type="button" onClick={() => setOpen(true)}>
-          Chat
+        <button className="chatbot-launcher" type="button" onClick={() => setOpen(true)} aria-label="Open chat assistant">
+          <img src={chatbotIcon} alt="Chat assistant" className="chatbot-launcher-image" />
         </button>
       )}
     </div>

@@ -28,7 +28,7 @@
 
 .hero-title-main {
   font-family: 'Jacques Francois Shadow', cursive;
-  font-size: clamp(3rem, 7vw, 6.3rem);
+  font-size: clamp(2.6rem, 5.8vw, 5.35rem);
   color: var(--accent-color);
   line-height: 1.1;
   font-weight: 400;
@@ -37,7 +37,7 @@
 
 .hero-title-sub {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.05rem, 2.1vw, 1.7rem);
+  font-size: clamp(0.95rem, 1.65vw, 1.4rem);
   color: var(--text-primary);
   font-weight: 500;
   line-height: 1.4;
@@ -64,6 +64,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
+  margin-left: auto;
 }
 
 .cta-button {
@@ -89,11 +90,22 @@
 .cta-button:hover {
   transform: translateY(-3px);
   border-color: rgba(0, 255, 153, 0.45);
-  box-shadow: 0 10px 20px rgba(0, 255, 153, 0.12);
+  box-shadow: 0 12px 24px rgba(0, 255, 153, 0.18), 0 0 0 1px rgba(0, 255, 153, 0.12);
 }
 
 .cta-button:active {
   transform: translateY(-1px);
+}
+
+.hero-actions .cta-button:last-child {
+  background: linear-gradient(135deg, #00ff99, #00c780);
+  color: #07110d;
+  border-color: transparent;
+  box-shadow: 0 10px 24px rgba(0, 255, 153, 0.15);
+}
+
+.hero-actions .cta-button:last-child:hover {
+  box-shadow: 0 14px 28px rgba(0, 255, 153, 0.24);
 }
 
 /* Features Section */
@@ -198,11 +210,11 @@
   }
 
   .hero-title-main {
-    font-size: 4.4rem;
+    font-size: 3.85rem;
   }
 
   .hero-title-sub {
-    font-size: 1.25rem;
+    font-size: 1.12rem;
   }
 
   .hero-description {
@@ -235,12 +247,12 @@
   }
 
   .hero-title-main {
-    font-size: 3rem;
+    font-size: 2.6rem;
     white-space: normal;
   }
 
   .hero-title-sub {
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
   .hero-description {
@@ -265,11 +277,11 @@
   }
 
   .hero-title-main {
-    font-size: 2.35rem;
+    font-size: 2.1rem;
   }
 
   .hero-title-sub {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
   }
 
   .hero-description {
@@ -293,6 +305,6 @@
 /* Small Mobile (320px - 375px) */
 @media (max-width: 375px) {
   .hero-title-main {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 }
